@@ -1,10 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import logo from './assets/to-do-list.png'
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Projeto 2BW</Text>
+      <View>
+        <Image source={logo} />
+      </View>
+      <Text>Projeto 2B - 12+1/08/2025</Text>
       <StatusBar style="auto" />
     </View>
   );
