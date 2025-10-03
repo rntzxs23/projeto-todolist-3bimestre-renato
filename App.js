@@ -15,19 +15,23 @@ export default function App() {
     if (tarefa.trim() === '') {
       //Alert.alert('Erro', 'Por favor, digite uma tarefa.');
       return;
-    }
+    };
 
     //Alert.alert('TODO List', 'Valor: ' + tarefa);
     setTarefas([tarefa, ...tarefas]);
     setTarefa('');
   };
 
+  const btnExcluir = (item) => {
+    setTarefas(tarefas.filter((oldTarefas) => oldTarefas !== item));
+  };
+
   const renderItem = ({ item }) => (
     <View style={styles.viewItemRender}>
-      <Checkbox value={false} />  
+      <Checkbox value={false} />
       <Text style={styles.textItemRender}>{item}</Text>
-      <TouchableOpacity>
-        <Image source={btnTrashBin}/>
+      <TouchableOpacity onPress={() => btnExcluir(item)}>
+        <Image source={btnTrashBin} />
       </TouchableOpacity>
     </View>
   );
@@ -94,6 +98,6 @@ const styles = StyleSheet.create({
     gap: 10
   },
   textItemRender: {
-    flex: 1
+    flex: 1,
   }
 });
